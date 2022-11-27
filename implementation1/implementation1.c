@@ -36,14 +36,14 @@ bin_tree * init_tree(int value) {
  * @param  head - The head of the binary tree to be added to.
  * @return head - The tree with the new leaf of value "value"
  */
-bin_tree * add_child(bin_tree * head, int value) {
-  if(!head->left_child)
-    head->left_child = init_tree(value);
-  else if(!head->right_child)
-    head->right_child = init_tree(value);
+bin_tree * add_child(bin_tree * bt, int value) {
+  if(!bt->left_child)
+    bt->left_child = init_tree(value);
+  else if(!bt->right_child)
+    bt->right_child = init_tree(value);
   else
-    next_addative(head->left_child, head->right_child, value);
-  return head;
+    next_addative(bt->left_child, bt->right_child, value);
+  return bt;
 }
 
 /**
@@ -51,21 +51,21 @@ bin_tree * add_child(bin_tree * head, int value) {
  * @param
  * @return
  */
-void next_addative(bin_tree * left_child, bin_tree * right_child,
+void next_addative(bin_tree * bt_left_child, bin_tree * bt_right_child,
     int value) {
-  if(!left_child->left_child)
-    left_child->left_child = init_tree(value);
-  else if(!left_child->right_child)
-    left_child->right_child = init_tree(value);
-  else if(!right_child->left_child)
-    right_child->left_child = init_tree(value);
-  else if(!right_child->right_child)
-    right_child->right_child = init_tree(value);
-  else if(highest_depth(left_child, 0) > highest_depth(right_child, 0))
-     return next_addative(right_child->left_child, right_child->right_child,
+  if(!bt_left_child->left_child)
+    bt_left_child->left_child = init_tree(value);
+  else if(!bt_left_child->right_child)
+    bt_left_child->right_child = init_tree(value);
+  else if(!bt_right_child->left_child)
+    bt_right_child->left_child = init_tree(value);
+  else if(!bt_right_child->right_child)
+    bt_right_child->right_child = init_tree(value);
+  else if(highest_depth(bt_left_child, 0) > highest_depth(bt_right_child, 0))
+     return next_addative(bt_right_child->left_child, bt_right_child->right_child,
          value);
   else
-     return next_addative(left_child->left_child, left_child->right_child,
+     return next_addative(bt_left_child->left_child, bt_left_child->right_child,
          value);
 }
 
