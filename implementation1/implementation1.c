@@ -25,6 +25,9 @@ int main(void) {
  */
 bin_tree * init_tree(int value) {
   bin_tree * bt = calloc(1, sizeof(struct BIN_TREE_T));
+  // Never knew this until digging into the compiler
+  // bt->right_child = (void *)0;
+  // bt->left_child = (void *)0;
   bt->right_child = NULL;
   bt->left_child = NULL;
   bt->value = value;
