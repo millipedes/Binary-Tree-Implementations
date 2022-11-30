@@ -22,8 +22,7 @@ typedef struct BIN_TREE_T {
 
 bin_tree * init_tree(int value);
 bin_tree * add_child(bin_tree * bt, int value);
-void next_addative(bin_tree * bt_left_child, bin_tree * bt_right_child,
-    int value);
+void next_addative(bin_tree * bt_left_child, bin_tree * bt_right_child, int value);
 int highest_depth(bin_tree * bt, int init_depth);
 int is_level_full(bin_tree * bt);
 void debug_bin_tree(bin_tree * bt, int depth);

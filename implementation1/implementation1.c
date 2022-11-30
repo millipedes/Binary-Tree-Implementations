@@ -54,8 +54,7 @@ bin_tree * add_child(bin_tree * bt, int value) {
  * @param
  * @return
  */
-void next_addative(bin_tree * bt_left_child, bin_tree * bt_right_child,
-    int value) {
+void next_addative(bin_tree * bt_left_child, bin_tree * bt_right_child, int value) {
   if(!bt_left_child->left_child)
     bt_left_child->left_child = init_tree(value);
   else if(!bt_left_child->right_child)
